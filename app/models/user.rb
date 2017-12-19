@@ -16,28 +16,28 @@ class User < ActiveRecord::Base
   REFERRAL_STEPS = [
     {
       'count' => 5,
-      'html' => 'Shave<br>Cream',
+      'html' => '15 Euro Credits',
       'class' => 'two',
       'image' =>  ActionController::Base.helpers.asset_path(
         'refer/cream-tooltip@2x.png')
     },
     {
       'count' => 10,
-      'html' => 'Truman Handle<br>w/ Blade',
+      'html' => '30 Euro Credits',
       'class' => 'three',
       'image' => ActionController::Base.helpers.asset_path(
         'refer/truman@2x.png')
     },
     {
-      'count' => 25,
-      'html' => 'Winston<br>Shave Set',
+      'count' => 15,
+      'html' => '50 Euro Credits',
       'class' => 'four',
       'image' => ActionController::Base.helpers.asset_path(
         'refer/winston@2x.png')
     },
     {
-      'count' => 50,
-      'html' => 'One Year<br>Free Blades',
+      'count' => 30,
+      'html' => '100 Euro Credits',
       'class' => 'five',
       'image' => ActionController::Base.helpers.asset_path(
         'refer/blade-explain@2x.png')
