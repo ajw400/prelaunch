@@ -8,6 +8,9 @@ gem 'devise'
 gem 'pg'
 gem 'rails', '4.2.5.2'
 gem 'unicorn'
+gem 'gibbon'
+gem "letter_opener", group: :development
+gem 'postmark-rails'
 
 
 # Gems used only for assets and not required
