@@ -1,12 +1,30 @@
-<div class="hero">
-  <p class="large brandon">Studiate komt eraan</p>
-  <p class="small brandon">Ontdek de nieuwe manier om je muziekpraktijk te dirigeren!</p>
-</div>
-
-<div class="form-wrap clearfix <%= "ended" if Rails.application.config.ended %>">
-  <% if Rails.application.config.ended %>
-    <%= render "users/campaign_ended" %>
-  <% else %>
-    <%= render "users/campaign_ongoing" %>
-  <% end %>
+<div class="main-container">
+  <section class="imageblock switchable-switch feature-large height-70 text-center">
+    <div class="imageblock__content col-md-12">
+      <div class="background-image-holder">
+        <%= image_tag "studiate.jpg" %>
+      </div>
+      <div class="container pos-vertical-center">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h1>Studiate Komt Eraan</h1>
+            <h3>Ontdek de nieuwe manier om je muziekpraktijk te dirigeren!</h3>
+          </div>
+        </div>
+        <!--end of row-->
+      </div>
+      <!--end of container-->
+    </div>
+  </section>
+  <section class="text-center height-30 space--xs">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="typed-headline">
+        <span class="h3 inline-block typed-text typed-text--cursor" data-typed-strings="Wees één van de eerste.">Wees één van de eerste.</span>
+      </div>
+      <%= form_for @user, :url => { :action => "create" } do |f| %>
+      <%= f.text_field :email, :placeholder => "Vul email in", :class => "email brandon" %>
+      <input class="btn btn--primary type--uppercase" name="commit" type="submit" value="Kom binnen"/>
+    <% end %>
+  </div>
+</section>
 </div>

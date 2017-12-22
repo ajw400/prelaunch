@@ -1,32 +1,20 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]> <html class="ie6 <%= @bodyId %>"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7 <%= @bodyId %>"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8 <%= @bodyId %>"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9 <%= @bodyId %>"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="<%= @bodyId %>"> <!--<![endif]-->
-<head>
-  <title>Studiate &ndash; Nodig vrienden uit, verdien credits</title>
-  <link rel="icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
-  <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" type="image/x-icon">
-
-  <meta property="og:title" content="Studiate komt eraan!"/>
-  <meta property="og:description" content="Administratie voor muziekpraktijken wordt efficiënter. Check out Studiate hier."/>
-  <meta property="og:image" content="<%= asset_path("refer/truman.png") %>"/>
-  <meta property="og:url" content="<%= root_url %>"/>
-  <% if @is_mobile %>
-    <% if @bodyId == 'home' %>
-      <meta name="viewport" content="width=1600" />
-    <% else %>
-      <meta name="viewport" content="width=1120" />
-    <% end %>
-  <% end %>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= csrf_meta_tags %>
-</head>
-<body id="<%= @bodyId %>">
-
-<%= yield %>
-
-
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Studiate &ndash; Nodig vrienden uit, verdien credits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Studiate komt eraan!"/>
+    <meta property="og:description" content="Administratie voor muziekpraktijken wordt efficiënter. Check out Studiate hier."/>
+    <meta property="og:image" content="<%= asset_path("refer/truman.png") %>"/>
+    <meta property="og:url" content="<%= root_url %>"/>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

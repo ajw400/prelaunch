@@ -1,0 +1,85 @@
+<div class="header">
+  <div class="content">
+    <p class="logo brandon">Studiate</p>
+    <p class="byline brandon">BEDANKT VOOR HET INSCHRIJVEN</p>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="page-content clearfix">
+    <div class="mammoth">
+      <span class="need brandon">Administratie<br>wordt Sneller</span>
+    </div>
+    <div class="share-wrap">
+      <p class="why brandon">Laat je mede muziekleraar achter</p>
+      <p class="title brandon">NODIG VRIENDEN UIT &<br>Verdien credits</p>
+      <p class="subtitle brandon">Deel uw unieke link via email, Facebook<br>of Twitter en verdien Studiate credits voor elke<br>die zich registreert.</p>
+      <div class="copy-link brandon"><%= root_url %>?ref=<%= @user.referral_code %></div>
+      <% twitter_message = "Kan niet wachten totdat @Studiate wordt gelanceerd. Ik ga mijn #muziekpraktijk op een nieuwe manier dirigeren!" %>
+      <div class="social-links">
+        <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Studiate" class="fb" target="_blank"></a>
+        <div class="sep"></div>
+        <a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="twit" target="_blank"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%
+  referrals_count = @user.referrals.count
+
+  stops = User::REFERRAL_STEPS
+
+  found = nil
+
+  stops.reverse_each { |stop|
+    if stop["count"] <= referrals_count and !found
+      stop["selected"] = true
+      found = stop
+    else
+      stop["selected"] = false
+    end
+  }
+%>
+<div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
+  <div class="page-content">
+    <p class="callout brandon">Hier is hoe het werkt:</p>
+    <ul class="products clearfix">
+      <li class="title brandon"><p class="friends">Vrienden geregistreerd</p><p class="rewards">Studiate Credits</p></li>
+      <% stops.each do |stop| %>
+        <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
+          <div class="circle"><%= stop["count"] %></div>
+          <div class="sep"></div>
+          <p><%= stop["html"].html_safe %></p>
+
+          <div class="tooltip">
+            <img src="<%= stop["image"] %>" height="254">
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="progress">
+      <div class="mover">
+        <div class="bar clearfix"></div>
+      </div>
+    </div>
+
+    <%
+      words = ''
+      if referrals_count == 1
+        words = 'vriend heeft'
+      else
+        words = 'vrienden hebben'
+      end
+    %>
+
+    <% if referrals_count == 0 %>
+      <p class="place brandon"><span>Geen</span> vrienden hebben zich geregistreerd...Nog niet!</p>
+    <% else %>
+      <p class="place brandon"><span><%= referrals_count %></span> <%= words %> geregistreerd</p>
+    <% end %>
+    <p class="check brandon">Blijf checken</p>
+
+  </div>
+</div>
