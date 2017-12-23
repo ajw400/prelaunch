@@ -27,26 +27,21 @@
               <input class="validate-required validate-email" type="email" value="<%= root_url %>?ref=<%= @user.referral_code %>"/>
             </form>
             <br>
-            <div>
-              <a class="btn btn--icon bg--facebook" href="#">
+              <a class="btn bg--facebook" href="#">
                 <span class="btn__text">
-                  <i class="socicon socicon-facebook"></i>
                   Facebook
                 </span>
               </a>
-              <a class="btn btn--icon bg--twitter" href="#">
+              <a class="btn bg--twitter" href="#">
                 <span class="btn__text">
-                  <i class="socicon socicon-twitter"></i>
                   Twitter
                 </span>
               </a>
-              <a class="btn btn--icon bg--dark" href="#">
+              <a class="btn bg--dark" href="#">
                 <span class="btn__text">
-                  <i class="socicon socicon-mail"></i>
                   Mail
                 </span>
               </a>
-            </div>
           </div>
         </div>
       </div>
@@ -122,7 +117,7 @@
         words = 'vrienden hebben'
       end
       %>
-      
+
         <div class="text-center">
           <% if referrals_count == 0 %>
             <p class="lead">
