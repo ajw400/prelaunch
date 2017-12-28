@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :referral_code, uniqueness: true
 
   before_create :create_referral_code
+  after_create :add_to_mailchimp
   # after_create :send_welcome_email
 
   REFERRAL_STEPS = [
@@ -52,5 +53,10 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     UserMailer.signup_email(self).deliver_now
+  end
+
+  def add_to_mailchimp
+    gibbon = Gibbon::Request.new(api_key: MAILCHIMP_API_KEY)
+    gibbon.lists('68e573a700').create(body: {email_address: email, status: "subscribed"})
   end
 end
