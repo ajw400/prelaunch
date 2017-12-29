@@ -19,7 +19,6 @@
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
             <span class="h2 bold">
               Nodig vrienden/collega’s uit & Verdien credits.</span>
-            <span class="h3 bold">Laat je mede muziekleraar niet achter</span>
             <p class="lead">
               Deel uw unieke link via email, Facebook of Twitter en verdien Studiate credits for elke vriend/collega die zich registreert.
             </p>
@@ -27,17 +26,17 @@
               <input class="validate-required validate-email" type="email" value="<%= root_url %>?ref=<%= @user.referral_code %>"/>
             </form>
             <br>
-              <a class="btn bg--facebook" href="#">
+              <a class="btn btn--sm bg--facebook" href="#">
                 <span class="btn__text">
                   Facebook
                 </span>
               </a>
-              <a class="btn bg--twitter" href="#">
+              <a class="btn btn--sm bg--twitter" href="#">
                 <span class="btn__text">
                   Twitter
                 </span>
               </a>
-              <a class="btn bg--dark" href="#">
+              <a class="btn btn--sm bg--dark" href="#">
                 <span class="btn__text">
                   Mail
                 </span>
@@ -66,6 +65,30 @@
     %>
       <div class="container">
         <div class="row">
+          <div class="text-center">
+            <%
+            words = ''
+            if referrals_count == 1
+              words = 'vriend heeft'
+            else
+              words = 'vrienden hebben'
+            end
+            %>
+            <% if referrals_count == 0 %>
+              <p class="lead">
+                <span>Geen</span>
+                vrienden hebben zich geregistreerd...Nog niet!</p>
+            <% else %>
+              <p class="lead">
+                <span><%= referrals_count %></span>
+                <%= words %>
+                geregistreerd</p>
+            <% end %>
+            <a class="btn btn--primary type--uppercase" href="#">
+              <span class="btn__text">Blijf checken</span>
+            </a>
+          </div>
+          <br><br>
           <h2 class="text-center bold">Hoe het werkt</h2>
           <div class="col-sm-12">
             <ul class="process-stepper clearfix" data-process-steps="5">
@@ -107,31 +130,5 @@
         <!--end of row-->
       </div>
       <!--end of container-->
-      <br><br>
-
-      <%
-      words = ''
-      if referrals_count == 1
-        words = 'vriend heeft'
-      else
-        words = 'vrienden hebben'
-      end
-      %>
-
-        <div class="text-center">
-          <% if referrals_count == 0 %>
-            <p class="lead">
-              <span>Geen</span>
-              vrienden hebben zich geregistreerd...Nog niet!</p>
-          <% else %>
-            <p class="lead">
-              <span><%= referrals_count %></span>
-              <%= words %>
-              geregistreerd</p>
-          <% end %>
-          <a class="btn btn--primary type--uppercase" href="#">
-            <span class="btn__text">Blijf checken</span>
-          </a>
-        </div>
       </section>
     </div>
