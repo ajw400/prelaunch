@@ -23,20 +23,23 @@
               Deel uw unieke link via email, Facebook of Twitter en verdien Studiate credits for elke vriend/collega die zich registreert.
             </p>
             <form action="">
-              <input class="validate-required validate-email" type="email" value="<%= root_url %>?ref=<%= @user.referral_code %>"/>
+              <input class="validate-required validate-email" type="email" value="http://studiate.nl?ref=<%= @user.referral_code %>"/>
             </form>
             <br>
-              <a class="btn btn--sm bg--facebook" href="#">
+  <!--               <a href="http://www.facebook.com/sharer/sharer.php?u=studiate.nl?ref=<%= CGI::escape(@user.referral_code) %>" class="btn btn--sm bg--facebook" target="_blank"></a> -->
+ <a class="btn btn--sm bg--facebook" href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape("http://www.studiate.nl") %>?ref=<%= CGI::escape(@user.referral_code) %>" target="_blank" >
                 <span class="btn__text">
                   Facebook
                 </span>
               </a>
-              <a class="btn btn--sm bg--twitter" href="#">
-                <span class="btn__text">
+              <% twitter_message = "Kan niet wachten totdat @Studiate NL wordt gelanceerd. Ik ga mijn #muziekpraktijk op een nieuwe manier dirigeren!" %>
+              <a href="http://twitter.com/share?url=<%= CGI::escape("http://www.studiate.nl") %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="btn btn--sm bg--twitter" target="_blank">
+              <span class="btn__text">
                   Twitter
                 </span>
               </a>
-              <a class="btn btn--sm bg--dark" href="#">
+              <a class="btn btn--sm bg--dark" href="mailto:email@echoecho.com?subject=SweetWords
+                &body=Please send me a copy of your new program!">
                 <span class="btn__text">
                   Mail
                 </span>
@@ -92,7 +95,7 @@
           <h2 class="text-center bold">Hoe het werkt</h2>
           <div class="col-sm-12">
             <ul class="process-stepper clearfix" data-process-steps="5">
-              <li class="active">
+              <li <% if referrals_count > 0 %>class="active"<% end %>>
                 <h2 class="bold m-l">
                   Vrienden
                 </h2>
@@ -100,25 +103,25 @@
                   Credits
                 </p>
               </li>
-              <li class="active">
+              <li <% if referrals_count > 4 %>class="active"<% end %>>
                 <h2 class="bold m-l">5</h2>
                 <p class="lead">
                   15 Euros
                 </p>
               </li>
-              <li class="active">
+              <li <% if referrals_count > 9 %>class="active"<% end %>>
                 <h2 class="bold m-l">10</h2>
                 <p class="lead">
                   35 Euros
                 </p>
               </li>
-              <li>
+              <li <% if referrals_count > 24 %>class="active"<% end %>>
                 <h2 class="bold m-l">25</h2>
                 <p class="lead">
                   75 Euros
                 </p>
               </li>
-              <li>
+              <li <% if referrals_count > 49 %>class="active"<% end %>>
                 <h2 class="bold m-l">50</h2>
                 <p class="lead">
                   100 Euros
