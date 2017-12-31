@@ -57,6 +57,6 @@ class User < ActiveRecord::Base
 
   def add_to_mailchimp
     gibbon = Gibbon::Request.new
-    gibbon.lists('68e573a700').members.create(body: {email_address: email, status: "subscribed"})
+    gibbon.lists('68e573a700').members.upsert(body: {email_address: email, status: "subscribed"})
   end
 end
