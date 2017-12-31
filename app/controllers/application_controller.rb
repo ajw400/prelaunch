@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def ref_to_cookie
+    p params
+    p params[:ref]
+    p cookies
     campaign_ended = Rails.application.config.ended
     return if campaign_ended || !params[:ref]
 

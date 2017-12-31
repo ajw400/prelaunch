@@ -87,12 +87,12 @@ Je kunt op deze link klikken voor meer informatie: http://www.studiate.nl?#{@use
                 vrienden hebben zich geregistreerd...Nog niet!</p>
             <% else %>
               <p class="lead">
-                <span><%= referrals_count %></span>
+                <span style="color:rgb(74, 144, 226)"><%= referrals_count %></span>
                 <%= words %>
                 geregistreerd</p>
             <% end %>
-            <a class="btn btn--primary type--uppercase" href="#">
-              <span class="btn__text">Blijf checken</span>
+            <a href="javascript:history.go(0)" class="btn btn--primary type--uppercase">
+              <span class="btn__text">Blijf checken!</span>
             </a>
           </div>
           <br><br>
