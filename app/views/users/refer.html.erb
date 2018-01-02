@@ -42,7 +42,7 @@
               <% email_message = "Hey _________,%0d%0d
 Ik krijg net deze website doorgestuurd en misschien is het interessant voor jou?%0d
 Het assisteert bij het efficiënter maken van je muziekpraktijk.%0d
-Je kunt op deze link klikken voor meer informatie: http://www.studiate.nl?#{@user.referral_code}" %>
+Je kunt op deze link klikken voor meer informatie: http://www.studiate.nl?ref=#{@user.referral_code}" %>
               <a class="btn btn--sm bg--dark" href="mailto:voorbeeld@email.nl?subject=<%= email_subject %>&body=<%= email_message %>">
                 <span class="btn__text">
                   Mail
