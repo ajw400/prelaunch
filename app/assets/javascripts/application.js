@@ -2,3 +2,4 @@
 //= require scripts
 //= require options
 //= require typed.min
+//= require smooth-scroll.min
